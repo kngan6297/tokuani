@@ -43,7 +43,7 @@
           </p>
         </div>
         <div class="card-footer">
-          <strong>Tổng tiền: ¥<%= order.cart.totalCost %></strong>
+          <strong>Tổng tiền: ¥<%= order.cart.totalCost.toLocaleString() %></strong>
         </div>
       </div>
       <%}) %>
