@@ -98,8 +98,8 @@ const AdminShowOrder = (props) => {
   });
 
   const PricesData = prices_key.map((price) => {
-    return <p key={price}>{price[1]}</p>;
-  });
+    return <p key={price}>¥{Number(price[1]).toLocaleString()}</p>;
+});
 
   return (
     <div>
@@ -124,7 +124,7 @@ const AdminShowOrder = (props) => {
       </Container>
       <ContainerBottom>
         <h4>Tổng số lượng sản phẩm: {polCarts["cart.totalQty"]} </h4>
-        <h4>Tổng tiền: ¥{polCarts["cart.totalCost"]} </h4>
+        <h4>Tổng tiền: ¥{polCarts["cart.totalCost"].toLocaleString()} </h4>
       </ContainerBottom>
     </div>
   );
