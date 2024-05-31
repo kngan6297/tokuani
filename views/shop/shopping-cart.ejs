@@ -32,7 +32,7 @@
                 href="/products/<%=product.category.slug%>/<%=product._id%>"
               >
                 <h6 class="text-left"><%= product.title %></h6> 
-                <p class="text-left">Product No: <%= product.productCode %></p>
+                <p class="text-left">Mã sản phẩm: <%= product.productCode %></p>
               </div>
               
               </a>
@@ -70,7 +70,7 @@
 <hr>
   <div class="row mt-4 mr-auto">
     <div class="col-md-11 col-sm-12 m-auto">
-      <strong>Tổng tiền: ¥<%= cart.totalCost %> </strong>
+      <strong>Tổng tiền: ¥<%= cart.totalCost.toLocaleString() %> </strong>
     </div>
   </div>
   <div class="row mt-2 mr-auto">
