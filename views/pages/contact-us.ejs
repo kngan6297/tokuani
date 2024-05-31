@@ -1,0 +1,115 @@
+<%- include ../partials/header %> <%- include ../partials/categories-navbar %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-12 m-auto">
+      <h1 class="mt-4 mb-4 text-center">Liên hệ</h1>
+      <!-- Flash message -->
+      <% if (successMsg != null && successMsg) { %>
+        <div id="success" class="alert alert-success">
+          <%= successMsg %>
+        </div>
+        <% } %>
+    </div>
+    <div class="col-lg-8 col-md-12 text-justify m-auto">
+      <!-- Introduction -->
+    <div class="mt-4 mb-4">
+      <p>Bạn luôn được chào đón liên hệ với chúng tôi bất cứ lúc nào! Vui lòng gửi email cho chúng tôi hoặc gọi điện cho chúng tôi bằng cách sử dụng chi tiết liên hệ của chúng tôi bên dưới<br />
+        Bạn cũng có thể ghé thăm chúng tôi hoặc gọi cho chúng tôi bất cứ lúc nào trong giờ làm việc của chúng tôi từ <i>Thứ hai đến Chủ nhật: 09:00 đến 21:00.</i> <br />
+        Chúng tôi trả lời email của mình ngay cả trong những ngày cuối tuần. Vì vậy xin vui lòng liên hệ với chúng tôi.
+      </p>
+    </div>
+      <!-- Email contacts -->
+      <div class="mt-4 mb-4">
+        <p>
+          <h6><i>Liên hệ với chúng tôi qua email:</i></h6>
+        </p>
+        <p>
+          Đối với các yêu cầu chung:
+          <a href="mailto:tokuanishop@gmail.com">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <u>tokuanishop@gmail.com</u>
+          </a>
+        </p>
+        <p>
+          Đối với vấn đề về đơn hàng:
+          <a href="mailto:tokuani_orders@gmail.com">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <u>tokuani_orders@gmail.com</u>
+          </a>
+        </p>
+        <p>
+          Để được hỗ trợ kỹ thuật:
+          <a href="mailto:tokuani_support@gmail.com">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <u>tokuani_support@gmail.com</u>
+          </a>
+        </p>
+      </div>
+      <!-- Phone contacts -->
+      <div class="mt-4 mb-4">
+        <p>
+          <h6><i>Liên hệ với chúng tôi qua điện thoại:</i></h6>
+        </p>
+        <p>
+          Hotline 1:
+          <a href="tel:(+84) 999 999 999">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            (+84) 999 999 999
+           </a>
+        </p>
+        <p>
+          Hotline 2:
+          <a href="tel:(+84) 999 999 999">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            (+84) 999 999 999
+           </a>
+        </p>
+        <p>
+          Zalo:
+          <a href="tel:(+84)999 999 999">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            (+84) 999 999 999
+           </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact us form -->
+    <div class="col-lg-8 col-md-12 m-auto">
+      <div class="mt-5 mb-4">
+        <h2>Liên hệ với chúng tôi</h2>
+        <!-- Error flash message -->
+        <% if(errorMsg!=null && errorMsg.length>0) {%>
+          <div id="flash-msg" class="alert alert-danger">
+            <% errorMsg.forEach((message) => { %>
+            <p>
+              <%=message %>
+            </p>
+            <%}) %>
+          </div>
+          <%}%>
+        <form action="/pages/contact-us" method="POST">
+          <div class="form-group">
+            <label for="name">Họ tên</label>
+            <input type="name" class="form-control" name="name" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Nội dung tin nhắn</label>
+            <textarea class="form-control" name="message" id="message" rows="5" placeholder="Hãy viết tin nhắn của bạn ở đây..." required></textarea>
+          </div>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <button type="submit" class="btn btn-primary button-style">
+            Gửi
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include ../partials/footer %>
